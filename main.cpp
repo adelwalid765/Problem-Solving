@@ -2,28 +2,38 @@
 
 using namespace std;
 
-long long arr[1005];
-
-long long calculateSum(int n,int i)
+void convertToBinary(int n)
  {
-    if (i==n)
+    if (n==0)
     {
-        return 0;
+        return;
     }
 
-    return arr[i]+calculateSum(n,i+1);
+    convertToBinary(n/2);
+    cout<<n%2;
 }
 
-int main()
-{
-    int n;
-    cin>>n;
+int main() {
 
-        for(int i=0;i<n;i++)
+    int t;
+    cin>>t;
+    {
+        while(t--)
         {
-            cin>>arr[i];
+            int n;
+            cin>>n;
+
+            if (n==0)
+            {
+                cout<<"0";
+            }
+             else
+            {
+                convertToBinary(n);
+            }
+            cout <<"\n";
         }
-        cout<<calculateSum(n,0)<<endl;
+    }
 
     return 0;
 }
